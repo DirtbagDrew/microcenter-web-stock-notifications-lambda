@@ -17,6 +17,7 @@ Resources:
       CodeUri: microcenter-stock-scraper/
       Handler: app.lambda_handler
       Runtime: python3.8
+      MemorySize: 256
       Policies:
         - AmazonSNSFullAccess
       Events:
