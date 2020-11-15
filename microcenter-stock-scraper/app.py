@@ -42,4 +42,4 @@ def lambda_handler(event, context):
             Message=f'{product.name} in stock at Tustin Microcenter! {product.url}')
         res.append(ProductStockResult(product.name, isInStock).toJson())
         
-    return res
+    return json.dumps(res)
