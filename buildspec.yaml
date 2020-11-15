@@ -7,6 +7,3 @@ phases:
     commands:
       - sam build
       - sam deploy --no-confirm-changeset
-artifacts:
-  files:
-    - packaged-template.yml
