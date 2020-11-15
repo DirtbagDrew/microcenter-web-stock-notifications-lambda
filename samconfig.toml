@@ -1,0 +1,11 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "microcenter-scraper"
+s3_bucket = "aws-sam-cli-managed-default-samclisourcebucket-rm4vlhgaunaf"
+s3_prefix = "microcenter-scraper"
+region = "us-west-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+
