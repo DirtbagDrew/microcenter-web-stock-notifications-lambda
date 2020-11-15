@@ -6,7 +6,7 @@ phases:
   build:
     commands:
       - sam build
-      - sam deploy
+      - sam deploy -y
 artifacts:
   files:
     - packaged-template.yml
