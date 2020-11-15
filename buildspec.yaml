@@ -2,7 +2,7 @@ version: 0.2
 phases:
   install:
     runtime-versions:
-        python: latest
+        python: 3.8
   build:
     commands:
       - sam build
