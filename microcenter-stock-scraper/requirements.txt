@@ -3,4 +3,3 @@ BeautifulSoup4
 boto3
 fake-useragent
 pandas
-json
