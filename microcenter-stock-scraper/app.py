@@ -5,16 +5,7 @@ from fake_useragent import UserAgent
 import boto3
 import json
 
-
-class JsonSerializable(object):
-    def toJson(self):
-        return json.dumps(self.__dict__)
-
-    def __repr__(self):
-        return self.toJson()
-
-
-class ProductStockResult(JsonSerializable):
+class ProductStockResult:
   def __init__(self, name, isInStock):
     self.name = name
     self.isInStock = isInStock
@@ -48,4 +39,4 @@ def lambda_handler(event, context):
             Message=f'{product.name} in stock at Tustin Microcenter! {product.url}')
         res.append(ProductStockResult(product.name, isInStock))
         
-    return json.dumps(res)
+    res
