@@ -9,11 +9,14 @@ class ProductStockResult:
   def __init__(self, name, isInStock):
     self.name = name
     self.isInStock = isInStock
+  def toJson(self):
+    return '{"name" : "' + self.name + '", "isInStock": "' + self.isInStock + '"}'
     
 class ProductToSearch:
   def __init__(self, name, url):
     self.name = name
     self.url = url
+
 
 def lambda_handler(event, context):
     ua = UserAgent()
@@ -37,6 +40,6 @@ def lambda_handler(event, context):
             sns.publish(
             TopicArn='arn:aws:sns:us-west-1:640172007277:ryzen-in-stock',    
             Message=f'{product.name} in stock at Tustin Microcenter! {product.url}')
-        res.append(ProductStockResult(product.name, isInStock))
+        res.append(ProductStockResult(product.name, isInStock).toJson())
         
     return res
