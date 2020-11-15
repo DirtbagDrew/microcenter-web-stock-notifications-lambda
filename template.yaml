@@ -20,11 +20,11 @@ Resources:
       Policies:
         - AmazonSNSFullAccess
       Events:
-        CWSchedule:
+        Scheduler:
           Type: Schedule
           Properties:
             Schedule: 'rate(10 minutes)'
-            Name: TestSchedule
+            Name: Scheduler
             Description: test schedule
             Enabled: True
 
