@@ -1,17 +1,9 @@
 version: 0.2
-
 phases:
   install:
-  pre_build:
-    commands:
-      - echo Nothing to do in the pre_build phase...
+    runtime-versions:
+        python: 3.8
   build:
     commands:
-      - serverless build
-      - serverless deploy
-  post_build:
-    commands:
-      - echo Build completed on `date`
-artifacts:
-  files:
-    - target/messageUtil-1.0.jar
+      - sam build
+      - sam deploy
