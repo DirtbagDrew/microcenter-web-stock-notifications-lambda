@@ -3,7 +3,6 @@ import requests
 import pandas as pd
 from fake_useragent import UserAgent
 import boto3
-import json
 
 class ProductStockResult:
   def __init__(self, name, isInStock):
@@ -17,17 +16,16 @@ class ProductToSearch:
     self.name = name
     self.url = url
 
+ua = UserAgent()
+sns = boto3.client('sns')
+header = {'User-Agent':str(ua.chrome)}
+
+products = [
+    ProductToSearch("AMD Ryzen 7 5800X","https://www.microcenter.com/product/630284/amd-ryzen-7-5800x-vermeer-38ghz-8-core-am4-boxed-processor?storeid=101"),
+    ProductToSearch("AMD Ryzen 5 5600X","https://www.microcenter.com/product/630285/amd-ryzen-5-5600x-vermeer-37ghz-6-core-am4-boxed-processor-with-wraith-stealth-cooler?storeid=101")
+]
 
 def lambda_handler(event, context):
-    ua = UserAgent()
-    sns = boto3.client('sns')
-    header = {'User-Agent':str(ua.chrome)}
-
-    products = [
-        ProductToSearch("AMD Ryzen 7 5800X","https://www.microcenter.com/product/630284/amd-ryzen-7-5800x-vermeer-38ghz-8-core-am4-boxed-processor?storeid=101"),
-        ProductToSearch("AMD Ryzen 5 5600X","https://www.microcenter.com/product/630285/amd-ryzen-5-5600x-vermeer-37ghz-6-core-am4-boxed-processor-with-wraith-stealth-cooler?storeid=101")
-    ]
-
     res=[]
     for product in products:
         isInStock = False
