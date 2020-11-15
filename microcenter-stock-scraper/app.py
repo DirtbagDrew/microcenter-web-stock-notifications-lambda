@@ -39,4 +39,4 @@ def lambda_handler(event, context):
             Message=f'{product.name} in stock at Tustin Microcenter! {product.url}')
         res.append(ProductStockResult(product.name, isInStock))
         
-    res
+    return res
