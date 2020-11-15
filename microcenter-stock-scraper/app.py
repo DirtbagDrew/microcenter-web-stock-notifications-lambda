@@ -32,7 +32,7 @@ def lambda_handler(event, context):
         soup = BeautifulSoup(req.content, 'html.parser')
         inventoryCountSpan=soup.find("span", class_="inventoryCnt")
     
-        if inventoryCountSpan.getText() == "Sold Out":
+        if inventoryCountSpan.getText() != "Sold Out":
             isInStock = False
             sns.publish(
             TopicArn='arn:aws:sns:us-west-1:640172007277:ryzen-in-stock',    
