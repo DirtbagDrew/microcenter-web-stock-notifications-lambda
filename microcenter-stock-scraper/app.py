@@ -10,7 +10,7 @@ class ProductStockResult:
     self.name = name
     self.isInStock = isInStock
   def toJson(self):
-    return '{"name" : "' + self.name + '", "isInStock": "' + self.isInStock + '"}'
+    return '{"name" : "' + self.name + '", "isInStock": "' + str(self.isInStock) + '"}'
     
 class ProductToSearch:
   def __init__(self, name, url):
