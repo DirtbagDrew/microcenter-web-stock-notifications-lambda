@@ -24,8 +24,8 @@ Resources:
         Scheduler:
           Type: Schedule
           Properties:
-            Schedule: 'rate(10 minutes)'
+            Schedule: 'rate(5 minutes)'
             Name: Scheduler
-            Description: test schedule
+            Description: Trigger MicrocenterStockScraper lambda every 5 minutes
             Enabled: True
 
