@@ -23,12 +23,6 @@ class ProductToSearch:
   def __init__(self, name, url):
     self.name = name
     self.url = url
-    
-class ProductStockResult(object):
-  def __init__(self, name, isInStock):
-    self.name = name
-    self.isInStock = isInStock
-
 
 def lambda_handler(event, context):
     ua = UserAgent()
