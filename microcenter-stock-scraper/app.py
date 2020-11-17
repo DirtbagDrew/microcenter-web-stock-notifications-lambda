@@ -33,8 +33,9 @@ def lambda_handler(event, context):
         req = requests.get(product.url, header)
         soup = BeautifulSoup(req.content, 'html.parser')
         inventoryCountSpan=soup.find("span", class_="inventoryCnt")
+        addButton = soup.find("input", class_="btn-add")
     
-        if inventoryCountSpan.getText() != "Sold Out":
+        if inventoryCountSpan.getText() != "Sold Out" and addButton != None:
             isInStock = False
             sns.publish(
             TopicArn=product.snsTopicArn,    
